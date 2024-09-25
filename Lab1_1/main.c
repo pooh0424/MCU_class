@@ -33,13 +33,13 @@ int main(void)
   {
 		i=ScanKey();
 		switch(i) {
-			case 1 : PC15=1; PC14=1;PC13=1;PC12=0; break;
-			case 2 : PC15=1; PC14=1;PC13=1;PC12=0; break;
-			case 3 : PC15=1; PC14=1;PC13=0;PC12=0; break;
-			case 4 : PC15=1; PC14=1;PC13=0;PC12=0; break;
-			case 5 : PC15=1; PC14=1;PC13=0;PC12=0; break;
-			case 6 : PC15=1; PC14=1;PC13=0;PC12=1; break;
-			case 7 : PC15=1; PC14=0;PC13=1;PC12=1; break;
+			case 1 : PC12=1; PC13=1;PC14=1;PC15=0; break;
+			case 2 : PC12=1; PC13=1;PC14=1;PC15=0; break;
+			case 3 : PC12=1; PC13=1;PC14=0;PC15=0; break;
+			case 4 : PC12=1; PC13=1;PC14=0;PC15=0; break;
+			case 5 : PC12=1; PC13=1;PC14=0;PC15=0; break;
+			case 6 : PC12=1; PC13=1;PC14=0;PC15=1; break;
+			case 7 : PC12=1; PC13=0;PC14=1;PC15=1; break;
 			default: PC12=1; PC13=1; PC14=1; PC15=1; break;
 		}	
 	}
