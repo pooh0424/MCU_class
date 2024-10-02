@@ -22344,23 +22344,24 @@ int main(void)
   {
 		count++;
 		i=ScanKey();
-		if(i == 9){
+		Display_7seg(number);
+		if(i!=0){
+				lasti = i;
+				continue;
+		}	
+		if(lasti == 9){
 				srand(count);
 				for(int r=0;r<4;r++){
 					number[r] = (rand()%9)+1;
 				}
+				lasti =0 ;
 		}
-		else if(i!=0){
-				lasti = i;
-		}	
-		if (lasti>0&&lasti<4){
+		else if (lasti>0&&lasti<5){
 				showbinary(number[lasti-1]);
 		}
 		else{
 				showbinary(0);
 		}
-
-		Display_7seg(number);
 	}
 }
 

@@ -47,6 +47,7 @@ void Display_7seg(uint32_t value[3])
 int main(void)
 {
 	uint32_t i =0;
+	uint32_t last_i = 0;
 	uint32_t number[3]={0,0,0};
 	SYS_Init();
 	OpenKeyPad();
@@ -55,22 +56,31 @@ int main(void)
  	while(1) 
   {
 		i=ScanKey();
-		if(i == 8){
+		Display_7seg(number);
+		if(i!=0){
+				last_i=i;
+				continue;
+		}
+		if(last_i == 8){
 				number[0]=0;
 				number[1]=0;
 				number[2]=0;
+				last_i = 0;
 		}
-		else if(i==7){
+		else if(last_i==7){
 				number[2]=number[1];
 				number[1]=number[0];
 				number[0]=0;
+				last_i = 0;
 		}	
-		else if(i>0&&i<7){
+		else if(last_i>0&&last_i<7){
 				number[0]=number[1];
 				number[1]=number[2];
-				number[2]=i;
+				number[2]=last_i;
+				last_i = 0;
 		}	
-		Display_7seg(number);
+		CLK_SysTickDelay(5000);
+		
 	}
 }
 
