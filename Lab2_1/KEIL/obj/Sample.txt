@@ -771,7 +771,7 @@
     Display_7seg
         0x00000584:    b570        p.      PUSH     {r4-r6,lr}
         0x00000586:    4604        .F      MOV      r4,r0
-        0x00000588:    7805        .x      LDRB     r5,[r0,#0]
+        0x00000588:    7b05        .{      LDRB     r5,[r0,#0xc]
         0x0000058a:    f7fffff1    ....    BL       CloseSevenSegment ; 0x570
         0x0000058e:    4629        )F      MOV      r1,r5
         0x00000590:    2003        .       MOVS     r0,#3
@@ -779,21 +779,21 @@
         0x00000596:    4e11        .N      LDR      r6,[pc,#68] ; [0x5dc] = 0x1388
         0x00000598:    4630        0F      MOV      r0,r6
         0x0000059a:    f7ffffc1    ....    BL       CLK_SysTickDelay ; 0x520
-        0x0000059e:    7925        %y      LDRB     r5,[r4,#4]
+        0x0000059e:    7a25        %z      LDRB     r5,[r4,#8]
         0x000005a0:    f7ffffe6    ....    BL       CloseSevenSegment ; 0x570
         0x000005a4:    4629        )F      MOV      r1,r5
         0x000005a6:    2002        .       MOVS     r0,#2
         0x000005a8:    f000f93a    ..:.    BL       ShowSevenSegment ; 0x820
         0x000005ac:    4630        0F      MOV      r0,r6
         0x000005ae:    f7ffffb7    ....    BL       CLK_SysTickDelay ; 0x520
-        0x000005b2:    7a25        %z      LDRB     r5,[r4,#8]
+        0x000005b2:    7925        %y      LDRB     r5,[r4,#4]
         0x000005b4:    f7ffffdc    ....    BL       CloseSevenSegment ; 0x570
         0x000005b8:    4629        )F      MOV      r1,r5
         0x000005ba:    2001        .       MOVS     r0,#1
         0x000005bc:    f000f930    ..0.    BL       ShowSevenSegment ; 0x820
         0x000005c0:    4630        0F      MOV      r0,r6
         0x000005c2:    f7ffffad    ....    BL       CLK_SysTickDelay ; 0x520
-        0x000005c6:    7b24        ${      LDRB     r4,[r4,#0xc]
+        0x000005c6:    7824        $x      LDRB     r4,[r4,#0]
         0x000005c8:    f7ffffd2    ....    BL       CloseSevenSegment ; 0x570
         0x000005cc:    4621        !F      MOV      r1,r4
         0x000005ce:    2000        .       MOVS     r0,#0

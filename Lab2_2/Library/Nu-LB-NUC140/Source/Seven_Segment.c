@@ -59,47 +59,43 @@ void ShowSevenSegment(uint8_t no, uint8_t number)
 {
   uint8_t temp,i;
 	temp=SEG_BUF[number];
-	
-	
 	if(number==0){
 			CloseSevenSegment();
 	}
 	else{
-	for(i=0;i<8;i++)
-	    {
-		if((temp&0x01)==0x01)		   		   
-			 switch(i) {
-				 case 0: PE0=1; break;
-				 case 1: PE1=1; break;
-				 case 2: PE2=1; break;
-				 case 3: PE3=1; break;
-				 case 4: PE4=1; break;
-				 case 5: PE5=1; break;
-				 case 6: PE6=1; break;
-				 case 7: PE7=1; break;
-			   }		
-		   else
+		for(i=0;i<8;i++)
+				{
+			if((temp&0x01)==0x01)		   		   
 				 switch(i) {
-				 case 0: PE0=0; break;
-				 case 1: PE1=0; break;
-				 case 2: PE2=0; break;
-				 case 3: PE3=0; break;
-				 case 4: PE4=0; break;
-				 case 5: PE5=0; break;
-				 case 6: PE6=0; break;
-				 case 7: PE7=0; break;
-				 }	  
-		   temp=temp>>1;
-		}	
-			switch(no) {
-				case 0: PC4=1; break;
-				case 1: PC5=1; break;
-				case 2: PC6=1; break;
-				case 3: PC7=1; break;
-			}
+					 case 0: PE0=1; break;
+					 case 1: PE1=1; break;
+					 case 2: PE2=1; break;
+					 case 3: PE3=1; break;
+					 case 4: PE4=1; break;
+					 case 5: PE5=1; break;
+					 case 6: PE6=1; break;
+					 case 7: PE7=1; break;
+					 }		
+				 else
+					 switch(i) {
+					 case 0: PE0=0; break;
+					 case 1: PE1=0; break;
+					 case 2: PE2=0; break;
+					 case 3: PE3=0; break;
+					 case 4: PE4=0; break;
+					 case 5: PE5=0; break;
+					 case 6: PE6=0; break;
+					 case 7: PE7=0; break;
+					 }	  
+				 temp=temp>>1;
+			}	
+				switch(no) {
+					case 0: PC4=1; break;
+					case 1: PC5=1; break;
+					case 2: PC6=1; break;
+					case 3: PC7=1; break;
+				}
 	}
-
-
 }
 
 

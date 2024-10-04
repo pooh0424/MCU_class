@@ -22310,22 +22310,22 @@ void showbinary(uint32_t number){
 void Display_7seg(uint32_t value[4])
 {
   uint8_t digit;
-	digit = value[0];
+	digit = value[3];
 	CloseSevenSegment();
 	ShowSevenSegment(3,digit);
 	CLK_SysTickDelay(5000);
 			
-	digit = value[1];
+	digit = value[2];
 	CloseSevenSegment();
 	ShowSevenSegment(2,digit);
 	CLK_SysTickDelay(5000);
 
-	digit = value[2];
+	digit = value[1];
 	CloseSevenSegment();
 	ShowSevenSegment(1,digit);
 	CLK_SysTickDelay(5000);
 
-	digit = value[3];
+	digit = value[0];
 	CloseSevenSegment();
 	ShowSevenSegment(0,digit);
 	CLK_SysTickDelay(5000);
