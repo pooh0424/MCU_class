@@ -17,6 +17,7 @@
 #include "Seven_Segment.h"
 volatile uint32_t* leds[4] = {&PC12, &PC13, &PC14, &PC15};
 
+
 void Init_GPIO(void)
 {
 	  GPIO_SetMode(PC, BIT12, GPIO_MODE_OUTPUT);
@@ -25,27 +26,44 @@ void Init_GPIO(void)
 	  GPIO_SetMode(PC, BIT15, GPIO_MODE_OUTPUT);
 	  PC12=1; PC13=1; PC14=1; PC15=1;
 }
-void Display_7seg(uint32_t leftvalue,uint32_t value)
+void Display_7seg(uint32_t leftvalue,uint32_t value,uint32_t delay)
 {
   uint8_t digit;
-			
+	while(delay>15000){
+		CloseSevenSegment();
+		ShowSevenSegment(3,leftvalue);
+		CLK_SysTickDelay(5000);
+		
+		digit = value/10;
+		CloseSevenSegment();
+		ShowSevenSegment(1,digit);
+		CLK_SysTickDelay(5000);
+
+		digit = value%10;
+		CloseSevenSegment();
+		ShowSevenSegment(0,digit);
+		CLK_SysTickDelay(5000);
+		delay-=15000;
+	}
 	CloseSevenSegment();
 	ShowSevenSegment(3,leftvalue);
-	CLK_SysTickDelay(5000);
-	
+	CLK_SysTickDelay(delay/3);
+		
 	digit = value/10;
 	CloseSevenSegment();
 	ShowSevenSegment(1,digit);
-	CLK_SysTickDelay(5000);
+	CLK_SysTickDelay(delay/3);
 
 	digit = value%10;
 	CloseSevenSegment();
 	ShowSevenSegment(0,digit);
-	CLK_SysTickDelay(5000);
+	CLK_SysTickDelay(delay/3);
+	
 }
 int main(void)
 {
 	uint32_t count =0;
+	uint32_t count2 =0;
 	uint32_t i =0;
 	uint32_t last_i = 0;
 	int32_t number=-1;
@@ -57,38 +75,54 @@ int main(void)
   {
 		count++;
 		if(number>=0){
-			Display_7seg(number%3,number);
 			switch (number%3){
 				case 0:
-					PC12=0; PC13=0; PC14=0; PC15=0;
-					CLK_SysTickDelay(100000);	
-					PC12=1; PC13=1; PC14=1; PC15=1;
-					CLK_SysTickDelay(100000);	
+					if(count2<=250){
+							PC12=0; PC13=0; PC14=0; PC15=0;
+							Display_7seg(number%3,number,2000);
+					}
+					else{
+							PC12=1; PC13=1; PC14=1; PC15=1;
+							Display_7seg(number%3,number,2000);					
+					}
 					break;
 				case 1:
-					PC12=0; PC13=1; PC14=1; PC15=1;
-					PB11=0;
-					CLK_SysTickDelay(100000);	
-					PC12=1; PC13=1; PC14=1; PC15=1;
-					PB11=1;
-					CLK_SysTickDelay(100000);	
+					if(count2<=250){
+							PC12=0; PC13=1; PC14=1; PC15=1;
+							PB11=0;
+							Display_7seg(number%3,number,2000);					
+					}
+					else{
+							PC12=1; PC13=1; PC14=1; PC15=1;
+							PB11=1;
+							Display_7seg(number%3,number,2000);
+					}
+
 					break;
 				case 2:
-					PC12=0; PC13=1; PC14=1; PC15=1;
-					for(int r=0;r<52;r++){
+					if(count2<=250){
+							PC12=0; PC13=1; PC14=1; PC15=1;
 							PB11=0;
-							CLK_SysTickDelay(956);	
+							Display_7seg(number%3,number,956);	
 							PB11=1;
-							CLK_SysTickDelay(956);	
+							Display_7seg(number%3,number,956);
 					}
-					PC12=1; PC13=1; PC14=1; PC15=0;
-					for(int r=0;r<98;r++){
+					else{
+							PC12=1; PC13=1; PC14=1; PC15=0;
 							PB11=0;
-							CLK_SysTickDelay(506);	
+							Display_7seg(number%3,number,506);	
 							PB11=1;			
-							CLK_SysTickDelay(506);							
-					}	
+							Display_7seg(number%3,number,506);
+							PB11=0;
+							Display_7seg(number%3,number,506);	
+							PB11=1;			
+							Display_7seg(number%3,number,506);
+					}					
 					break;
+			}
+			count2++;
+			if(count2==500){
+				count2 = 0;
 			}
 		}
 		i=ScanKey();
@@ -99,15 +133,19 @@ int main(void)
 		if(last_i == 9){
 			srand(count);
 			number=rand()%100;
+			PB11 = 1;
+			count2 =0;
+			PC12=1; PC13=1; PC14=1; PC15=1;
 			last_i =0;
 		}
 		else if(last_i==8){
 			number=-1;
 			CloseSevenSegment();
+			PB11 = 1;
+			count2 =0;
 			PC12=1; PC13=1; PC14=1; PC15=1;
 			last_i =0;
 		}	
-		CLK_SysTickDelay(5000);
 	}
 }
 

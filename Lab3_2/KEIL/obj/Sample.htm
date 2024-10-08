@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\obj\Sample.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\Sample.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Oct 07 22:15:35 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Oct 08 16:49:25 2024
 <BR><P>
-<H3>Maximum Stack Usage =         92 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        100 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
 <P>
@@ -320,8 +320,8 @@ Global Symbols
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_7seg
 </UL>
 
-<P><STRONG><a name="[39]"></a>Display_7seg</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, main.o(i.Display_7seg))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Display_7seg &rArr; ShowSevenSegment &rArr; __ARM_common_switch8
+<P><STRONG><a name="[39]"></a>Display_7seg</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, main.o(i.Display_7seg))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = Display_7seg &rArr; ShowSevenSegment &rArr; __ARM_common_switch8
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ShowSevenSegment
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CloseSevenSegment
@@ -435,8 +435,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf5.o(i.__0printf$5)
 </UL>
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 314 bytes, Stack size 8 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = main &rArr; SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 352 bytes, Stack size 16 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = main &rArr; SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ScanKey
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
@@ -444,7 +444,6 @@ Global Symbols
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpenKeyPad
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CloseSevenSegment
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_7seg
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_SysTickDelay
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;srand
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -470,8 +469,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[3c]"></a>CLK_SysTickDelay</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.CLK_SysTickDelay))
-<BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_7seg
+<BR><BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Display_7seg
 </UL>
 
 <P><STRONG><a name="[48]"></a>_printf_core</STRONG> (Thumb, 688 bytes, Stack size 96 bytes, printf5.o(i._printf_core), UNUSED)

@@ -58,20 +58,19 @@ Section Cross References
     uart.o(i.UART_SetLine_Config) refers to uidiv.o(.text) for __aeabi_uidivmod
     uart.o(i.UART_SetLine_Config) refers to uart.o(.constdata) for .constdata
     main.o(i.CLK_SysTickDelay) refers to system_nuc100series.o(.data) for CyclesPerUs
+    main.o(i.Display_7seg) refers to uidiv.o(.text) for __aeabi_uidivmod
     main.o(i.Display_7seg) refers to seven_segment.o(i.CloseSevenSegment) for CloseSevenSegment
     main.o(i.Display_7seg) refers to seven_segment.o(i.ShowSevenSegment) for ShowSevenSegment
     main.o(i.Display_7seg) refers to main.o(i.CLK_SysTickDelay) for CLK_SysTickDelay
-    main.o(i.Display_7seg) refers to uidiv.o(.text) for __aeabi_uidivmod
     main.o(i.Init_GPIO) refers to gpio.o(i.GPIO_SetMode) for GPIO_SetMode
     main.o(i.main) refers to sys_init.o(i.SYS_Init) for SYS_Init
     main.o(i.main) refers to scankey.o(i.OpenKeyPad) for OpenKeyPad
     main.o(i.main) refers to seven_segment.o(i.OpenSevenSegment) for OpenSevenSegment
     main.o(i.main) refers to idiv.o(.text) for __aeabi_idivmod
     main.o(i.main) refers to main.o(i.Display_7seg) for Display_7seg
-    main.o(i.main) refers to main.o(i.CLK_SysTickDelay) for CLK_SysTickDelay
     main.o(i.main) refers to scankey.o(i.ScanKey) for ScanKey
-    main.o(i.main) refers to rand.o(.text) for srand
     main.o(i.main) refers to seven_segment.o(i.CloseSevenSegment) for CloseSevenSegment
+    main.o(i.main) refers to rand.o(.text) for srand
     sys_init.o(i.SYS_Init) refers to clk.o(i.CLK_EnableXtalRC) for CLK_EnableXtalRC
     sys_init.o(i.SYS_Init) refers to clk.o(i.CLK_WaitClockReady) for CLK_WaitClockReady
     sys_init.o(i.SYS_Init) refers to clk.o(i.CLK_SetCoreClock) for CLK_SetCoreClock
@@ -539,28 +538,28 @@ Image Symbol Table
     i.CLK_WaitClockReady                     0x00000544   Section        0  clk.o(i.CLK_WaitClockReady)
     i.CloseSevenSegment                      0x00000570   Section        0  seven_segment.o(i.CloseSevenSegment)
     i.Display_7seg                           0x00000584   Section        0  main.o(i.Display_7seg)
-    i.GPIO_SetMode                           0x000005d8   Section        0  gpio.o(i.GPIO_SetMode)
-    i.Hard_Fault_Handler                     0x00000600   Section        0  retarget.o(i.Hard_Fault_Handler)
-    __tagsym$$used                           0x00000601   Number         0  retarget.o(i.Hard_Fault_Handler)
-    i.OpenKeyPad                             0x00000628   Section        0  scankey.o(i.OpenKeyPad)
-    i.OpenSevenSegment                       0x00000670   Section        0  seven_segment.o(i.OpenSevenSegment)
-    i.SYS_Init                               0x0000071c   Section        0  sys_init.o(i.SYS_Init)
-    i.ScanKey                                0x00000754   Section        0  scankey.o(i.ScanKey)
-    i.SendChar                               0x000007e0   Section        0  retarget.o(i.SendChar)
-    i.ShowSevenSegment                       0x00000818   Section        0  seven_segment.o(i.ShowSevenSegment)
-    i.SystemCoreClockUpdate                  0x000008c0   Section        0  system_nuc100series.o(i.SystemCoreClockUpdate)
-    i.SystemInit                             0x00000950   Section        0  system_nuc100series.o(i.SystemInit)
-    i.__0printf$5                            0x00000954   Section        0  printf5.o(i.__0printf$5)
-    i.__ARM_common_switch8                   0x00000974   Section        0  seven_segment.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x0000098e   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0000099c   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0000099e   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000009ac   Section        0  printf5.o(i._printf_core)
-    _printf_core                             0x000009ad   Thumb Code   688  printf5.o(i._printf_core)
-    i.fputc                                  0x00000c88   Section        0  retarget.o(i.fputc)
-    i.main                                   0x00000c94   Section        0  main.o(i.main)
-    i.stackDump                              0x00000ddc   Section        0  retarget.o(i.stackDump)
-    stackDump                                0x00000ddd   Thumb Code    70  retarget.o(i.stackDump)
+    i.GPIO_SetMode                           0x00000630   Section        0  gpio.o(i.GPIO_SetMode)
+    i.Hard_Fault_Handler                     0x00000658   Section        0  retarget.o(i.Hard_Fault_Handler)
+    __tagsym$$used                           0x00000659   Number         0  retarget.o(i.Hard_Fault_Handler)
+    i.OpenKeyPad                             0x00000680   Section        0  scankey.o(i.OpenKeyPad)
+    i.OpenSevenSegment                       0x000006c8   Section        0  seven_segment.o(i.OpenSevenSegment)
+    i.SYS_Init                               0x00000774   Section        0  sys_init.o(i.SYS_Init)
+    i.ScanKey                                0x000007ac   Section        0  scankey.o(i.ScanKey)
+    i.SendChar                               0x00000838   Section        0  retarget.o(i.SendChar)
+    i.ShowSevenSegment                       0x00000870   Section        0  seven_segment.o(i.ShowSevenSegment)
+    i.SystemCoreClockUpdate                  0x00000918   Section        0  system_nuc100series.o(i.SystemCoreClockUpdate)
+    i.SystemInit                             0x000009a8   Section        0  system_nuc100series.o(i.SystemInit)
+    i.__0printf$5                            0x000009ac   Section        0  printf5.o(i.__0printf$5)
+    i.__ARM_common_switch8                   0x000009cc   Section        0  seven_segment.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x000009e6   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000009f4   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000009f6   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00000a04   Section        0  printf5.o(i._printf_core)
+    _printf_core                             0x00000a05   Thumb Code   688  printf5.o(i._printf_core)
+    i.fputc                                  0x00000ce0   Section        0  retarget.o(i.fputc)
+    i.main                                   0x00000cec   Section        0  main.o(i.main)
+    i.stackDump                              0x00000e50   Section        0  retarget.o(i.stackDump)
+    stackDump                                0x00000e51   Thumb Code    70  retarget.o(i.stackDump)
     .data                                    0x20000000   Section       44  system_nuc100series.o(.data)
     .data                                    0x2000002c   Section        1  retarget.o(.data)
     g_buf_len                                0x2000002c   Data           1  retarget.o(.data)
@@ -691,28 +690,28 @@ Image Symbol Table
     CLK_SetHCLK                              0x000004d9   Thumb Code    66  clk.o(i.CLK_SetHCLK)
     CLK_WaitClockReady                       0x00000545   Thumb Code    34  clk.o(i.CLK_WaitClockReady)
     CloseSevenSegment                        0x00000571   Thumb Code    14  seven_segment.o(i.CloseSevenSegment)
-    Display_7seg                             0x00000585   Thumb Code    78  main.o(i.Display_7seg)
-    GPIO_SetMode                             0x000005d9   Thumb Code    40  gpio.o(i.GPIO_SetMode)
-    Hard_Fault_Handler                       0x00000601   Thumb Code    16  retarget.o(i.Hard_Fault_Handler)
-    OpenKeyPad                               0x00000629   Thumb Code    66  scankey.o(i.OpenKeyPad)
-    OpenSevenSegment                         0x00000671   Thumb Code   162  seven_segment.o(i.OpenSevenSegment)
-    SYS_Init                                 0x0000071d   Thumb Code    48  sys_init.o(i.SYS_Init)
-    ScanKey                                  0x00000755   Thumb Code   136  scankey.o(i.ScanKey)
-    SendChar                                 0x000007e1   Thumb Code    48  retarget.o(i.SendChar)
-    ShowSevenSegment                         0x00000819   Thumb Code   158  seven_segment.o(i.ShowSevenSegment)
-    SystemCoreClockUpdate                    0x000008c1   Thumb Code   118  system_nuc100series.o(i.SystemCoreClockUpdate)
-    SystemInit                               0x00000951   Thumb Code     2  system_nuc100series.o(i.SystemInit)
-    __0printf$5                              0x00000955   Thumb Code    24  printf5.o(i.__0printf$5)
-    __1printf$5                              0x00000955   Thumb Code     0  printf5.o(i.__0printf$5)
-    __2printf                                0x00000955   Thumb Code     0  printf5.o(i.__0printf$5)
-    __ARM_common_switch8                     0x00000975   Thumb Code    26  seven_segment.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x0000098f   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0000099d   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0000099f   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    fputc                                    0x00000c89   Thumb Code    12  retarget.o(i.fputc)
-    main                                     0x00000c95   Thumb Code   314  main.o(i.main)
-    Region$$Table$$Base                      0x00000e84   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000ea4   Number         0  anon$$obj.o(Region$$Table)
+    Display_7seg                             0x00000585   Thumb Code   164  main.o(i.Display_7seg)
+    GPIO_SetMode                             0x00000631   Thumb Code    40  gpio.o(i.GPIO_SetMode)
+    Hard_Fault_Handler                       0x00000659   Thumb Code    16  retarget.o(i.Hard_Fault_Handler)
+    OpenKeyPad                               0x00000681   Thumb Code    66  scankey.o(i.OpenKeyPad)
+    OpenSevenSegment                         0x000006c9   Thumb Code   162  seven_segment.o(i.OpenSevenSegment)
+    SYS_Init                                 0x00000775   Thumb Code    48  sys_init.o(i.SYS_Init)
+    ScanKey                                  0x000007ad   Thumb Code   136  scankey.o(i.ScanKey)
+    SendChar                                 0x00000839   Thumb Code    48  retarget.o(i.SendChar)
+    ShowSevenSegment                         0x00000871   Thumb Code   158  seven_segment.o(i.ShowSevenSegment)
+    SystemCoreClockUpdate                    0x00000919   Thumb Code   118  system_nuc100series.o(i.SystemCoreClockUpdate)
+    SystemInit                               0x000009a9   Thumb Code     2  system_nuc100series.o(i.SystemInit)
+    __0printf$5                              0x000009ad   Thumb Code    24  printf5.o(i.__0printf$5)
+    __1printf$5                              0x000009ad   Thumb Code     0  printf5.o(i.__0printf$5)
+    __2printf                                0x000009ad   Thumb Code     0  printf5.o(i.__0printf$5)
+    __ARM_common_switch8                     0x000009cd   Thumb Code    26  seven_segment.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x000009e7   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000009f5   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000009f7   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    fputc                                    0x00000ce1   Thumb Code    12  retarget.o(i.fputc)
+    main                                     0x00000ced   Thumb Code   352  main.o(i.main)
+    Region$$Table$$Base                      0x00000ef8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000f18   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_nuc100series.o(.data)
     CyclesPerUs                              0x20000004   Data           4  system_nuc100series.o(.data)
     PllClock                                 0x20000008   Data           4  system_nuc100series.o(.data)
@@ -729,9 +728,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000012d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000eec, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000f60, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000ea4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000f18, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -763,43 +762,43 @@ Memory Map of the image
     0x00000520   0x00000520   0x00000024   Code   RO          615    i.CLK_SysTickDelay  main.o
     0x00000544   0x00000544   0x0000002c   Code   RO          142    i.CLK_WaitClockReady  clk.o
     0x00000570   0x00000570   0x00000014   Code   RO          781    i.CloseSevenSegment  seven_segment.o
-    0x00000584   0x00000584   0x00000054   Code   RO          616    i.Display_7seg      main.o
-    0x000005d8   0x000005d8   0x00000028   Code   RO          274    i.GPIO_SetMode      gpio.o
-    0x00000600   0x00000600   0x00000028   Code   RO          309    i.Hard_Fault_Handler  retarget.o
-    0x00000628   0x00000628   0x00000048   Code   RO          746    i.OpenKeyPad        scankey.o
-    0x00000670   0x00000670   0x000000ac   Code   RO          782    i.OpenSevenSegment  seven_segment.o
-    0x0000071c   0x0000071c   0x00000038   Code   RO          720    i.SYS_Init          sys_init.o
-    0x00000754   0x00000754   0x0000008c   Code   RO          747    i.ScanKey           scankey.o
-    0x000007e0   0x000007e0   0x00000038   Code   RO          311    i.SendChar          retarget.o
-    0x00000818   0x00000818   0x000000a8   Code   RO          783    i.ShowSevenSegment  seven_segment.o
-    0x000008c0   0x000008c0   0x00000090   Code   RO            3    i.SystemCoreClockUpdate  system_nuc100series.o
-    0x00000950   0x00000950   0x00000002   Code   RO            4    i.SystemInit        system_nuc100series.o
-    0x00000952   0x00000952   0x00000002   PAD
-    0x00000954   0x00000954   0x00000020   Code   RO          957    i.__0printf$5       mc_p.l(printf5.o)
-    0x00000974   0x00000974   0x0000001a   Code   RO          811    i.__ARM_common_switch8  seven_segment.o
-    0x0000098e   0x0000098e   0x0000000e   Code   RO         1126    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x0000099c   0x0000099c   0x00000002   Code   RO         1127    i.__scatterload_null  mc_p.l(handlers.o)
-    0x0000099e   0x0000099e   0x0000000e   Code   RO         1128    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x000009ac   0x000009ac   0x000002dc   Code   RO          964    i._printf_core      mc_p.l(printf5.o)
-    0x00000c88   0x00000c88   0x0000000c   Code   RO          317    i.fputc             retarget.o
-    0x00000c94   0x00000c94   0x00000148   Code   RO          618    i.main              main.o
-    0x00000ddc   0x00000ddc   0x000000a8   Code   RO          319    i.stackDump         retarget.o
-    0x00000e84   0x00000e84   0x00000020   Data   RO         1124    Region$$Table       anon$$obj.o
+    0x00000584   0x00000584   0x000000ac   Code   RO          616    i.Display_7seg      main.o
+    0x00000630   0x00000630   0x00000028   Code   RO          274    i.GPIO_SetMode      gpio.o
+    0x00000658   0x00000658   0x00000028   Code   RO          309    i.Hard_Fault_Handler  retarget.o
+    0x00000680   0x00000680   0x00000048   Code   RO          746    i.OpenKeyPad        scankey.o
+    0x000006c8   0x000006c8   0x000000ac   Code   RO          782    i.OpenSevenSegment  seven_segment.o
+    0x00000774   0x00000774   0x00000038   Code   RO          720    i.SYS_Init          sys_init.o
+    0x000007ac   0x000007ac   0x0000008c   Code   RO          747    i.ScanKey           scankey.o
+    0x00000838   0x00000838   0x00000038   Code   RO          311    i.SendChar          retarget.o
+    0x00000870   0x00000870   0x000000a8   Code   RO          783    i.ShowSevenSegment  seven_segment.o
+    0x00000918   0x00000918   0x00000090   Code   RO            3    i.SystemCoreClockUpdate  system_nuc100series.o
+    0x000009a8   0x000009a8   0x00000002   Code   RO            4    i.SystemInit        system_nuc100series.o
+    0x000009aa   0x000009aa   0x00000002   PAD
+    0x000009ac   0x000009ac   0x00000020   Code   RO          957    i.__0printf$5       mc_p.l(printf5.o)
+    0x000009cc   0x000009cc   0x0000001a   Code   RO          811    i.__ARM_common_switch8  seven_segment.o
+    0x000009e6   0x000009e6   0x0000000e   Code   RO         1126    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x000009f4   0x000009f4   0x00000002   Code   RO         1127    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000009f6   0x000009f6   0x0000000e   Code   RO         1128    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00000a04   0x00000a04   0x000002dc   Code   RO          964    i._printf_core      mc_p.l(printf5.o)
+    0x00000ce0   0x00000ce0   0x0000000c   Code   RO          317    i.fputc             retarget.o
+    0x00000cec   0x00000cec   0x00000164   Code   RO          618    i.main              main.o
+    0x00000e50   0x00000e50   0x000000a8   Code   RO          319    i.stackDump         retarget.o
+    0x00000ef8   0x00000ef8   0x00000020   Data   RO         1124    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000ea4, Size: 0x00000048, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000f18, Size: 0x00000048, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000ea4   0x0000002c   Data   RW            5    .data               system_nuc100series.o
-    0x2000002c   0x00000ed0   0x00000001   Data   RW          321    .data               retarget.o
-    0x2000002d   0x00000ed1   0x00000003   PAD
-    0x20000030   0x00000ed4   0x00000004   Data   RW          322    .data               retarget.o
-    0x20000034   0x00000ed8   0x00000010   Data   RW          784    .data               seven_segment.o
-    0x20000044   0x00000ee8   0x00000004   Data   RW          822    .data               mc_p.l(rand.o)
+    0x20000000   0x00000f18   0x0000002c   Data   RW            5    .data               system_nuc100series.o
+    0x2000002c   0x00000f44   0x00000001   Data   RW          321    .data               retarget.o
+    0x2000002d   0x00000f45   0x00000003   PAD
+    0x20000030   0x00000f48   0x00000004   Data   RW          322    .data               retarget.o
+    0x20000034   0x00000f4c   0x00000010   Data   RW          784    .data               seven_segment.o
+    0x20000044   0x00000f5c   0x00000004   Data   RW          822    .data               mc_p.l(rand.o)
 
 
-    Execution Region ER_ZI (Exec base: 0x20000048, Load base: 0x00000eec, Size: 0x00000410, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000048, Load base: 0x00000f60, Size: 0x00000410, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -816,7 +815,7 @@ Image component sizes
 
        660         90          0          0          0       4453   clk.o
         40          0          0          0          0        943   gpio.o
-       448         28          0          0          0       1882   main.o
+       564         20          0          0          0       2030   main.o
        362        140          0          5         16       4577   retarget.o
        212         10          0          0          0       1235   scankey.o
        386         46          0         16          0       2928   seven_segment.o
@@ -825,7 +824,7 @@ Image component sizes
        146         26          0         44          0     117867   system_nuc100series.o
 
     ----------------------------------------------------------------------
-      2390        380        224         68       1040     169528   Object Totals
+      2506        372        224         68       1040     169676   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          0          3          0          0   (incl. Padding)
 
@@ -871,15 +870,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      3524        460        224         72       1040     169204   Grand Totals
-      3524        460        224         72       1040     169204   ELF Image Totals
-      3524        460        224         72          0          0   ROM Totals
+      3640        452        224         72       1040     169352   Grand Totals
+      3640        452        224         72       1040     169352   ELF Image Totals
+      3640        452        224         72          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 3748 (   3.66kB)
+    Total RO  Size (Code + RO Data)                 3864 (   3.77kB)
     Total RW  Size (RW Data + ZI Data)              1112 (   1.09kB)
-    Total ROM Size (Code + RO Data + RW Data)       3820 (   3.73kB)
+    Total ROM Size (Code + RO Data + RW Data)       3936 (   3.84kB)
 
 ==============================================================================
 
