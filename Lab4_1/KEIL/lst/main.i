@@ -22339,15 +22339,16 @@ int main(void)
 	uint32_t last_i = 0;
 	uint32_t number[3]={0,0,0};
 	SYS_Init();
+	Init_GPIO();
 	OpenKeyPad();
 	OpenSevenSegment();
 
  	while(1) 
   {
 		if(state!=0){
-				if(count%300==0){
+				if(count2%30==0){
 						  (*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(0))) + ((12)<<2))))=1; (*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(0))) + ((13)<<2))))=1; (*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(0))) + ((14)<<2))))=1;
-							leds[count/300]=0;
+							*(leds[count2/30])=0;
 							if(state==1){
 									uint32_t buffer=number[0];
 									number[0]=number[1];
@@ -22362,9 +22363,9 @@ int main(void)
 							}
 				}
 				count2++;
-				if(count2%900==0)count2=0;
+				if(count2%90==0)count2=0;
 		}
-		Display_7seg(number,1000);
+		Display_7seg(number,10000);
 		i=ScanKey();
 		if(i!=0){
 				last_i=i;

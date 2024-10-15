@@ -22363,7 +22363,12 @@ int main(void)
 			if(resultnumber<0){
 					resultnumber=-resultnumber;
 					(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(1))) + ((11)<<2))))=0;
-					CLK_SysTickDelay(100000);
+					Display_7seg(resultnumber);
+					(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(1))) + ((11)<<2))))=1;
+					CLK_SysTickDelay(10000);
+					Display_7seg(resultnumber);
+					(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(1))) + ((11)<<2))))=0;
+					Display_7seg(resultnumber);
 					(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(1))) + ((11)<<2))))=1;
 				
 			}

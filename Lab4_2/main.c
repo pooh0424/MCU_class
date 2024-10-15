@@ -87,7 +87,12 @@ int main(void)
 			if(resultnumber<0){
 					resultnumber=-resultnumber;
 					PB11=0;
-					CLK_SysTickDelay(100000);
+					Display_7seg(resultnumber);
+					PB11=1;
+					CLK_SysTickDelay(10000);
+					Display_7seg(resultnumber);
+					PB11=0;
+					Display_7seg(resultnumber);
 					PB11=1;
 				
 			}
