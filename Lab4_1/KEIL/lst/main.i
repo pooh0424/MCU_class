@@ -22332,7 +22332,6 @@ void Display_7seg(uint32_t value[3],uint32_t delay)
 }
 int main(void)
 {
-	uint32_t count =0;
 	uint32_t count2 =0;
 	uint32_t state =0;
 	uint32_t i =0;
