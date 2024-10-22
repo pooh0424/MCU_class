@@ -26,5 +26,5 @@
 .\obj\sys_init.o: ..\Library\StdDriver\inc\PS2.h
 .\obj\sys_init.o: ..\Library\StdDriver\inc\CLK.h
 .\obj\sys_init.o: ..\Library\StdDriver\inc\ACMP.h
-.\obj\sys_init.o: ..\KEIL\MCU_init.h
+.\obj\sys_init.o: ..\MCU_init.h
 .\obj\sys_init.o: ..\Library\Nu-LB-NUC140\Include\SYS_init.h

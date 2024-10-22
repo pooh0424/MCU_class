@@ -59,7 +59,8 @@ void ShowSevenSegment(uint8_t no, uint8_t number)
 {
   uint8_t temp,i;
 	temp=SEG_BUF[number];
-
+	
+		if(number!=0){
 		for(i=0;i<8;i++)
 				{
 			if((temp&0x01)==0x01)		   		   
@@ -92,7 +93,7 @@ void ShowSevenSegment(uint8_t no, uint8_t number)
 					case 2: PC6=1; break;
 					case 3: PC7=1; break;
 				}
-
+			}
 }
 
 

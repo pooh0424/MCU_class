@@ -20396,12 +20396,12 @@ void Hard_Fault_Handler(uint32_t stack[])
  
  
 
+#line 312 "..\\Library\\StdDriver\\src\\retarget.c"
 
- 
-static char g_buf[16];
-static char g_buf_len = 0;
+#line 353 "..\\Library\\StdDriver\\src\\retarget.c"
 
-#line 227 "..\\Library\\StdDriver\\src\\retarget.c"
+
+
 
 
 
@@ -20412,81 +20412,23 @@ static char g_buf_len = 0;
  
 __asm int32_t HardFault_Handler(void)
 {
-    MOV     R0, LR
-    LSLS    R0, #29               
-    BMI     SP_is_PSP             
-    MRS     R0, MSP               
-    B       SP_Read_Ready
-SP_is_PSP
-    MRS     R0, PSP               
-
-SP_Read_Ready
-    LDR     R1, [R0, #24]         
-    LDRH    R3, [R1]              
-    LDR     R2, =0xBEAB           
-    CMP     R3, R2                
-    BNE     HardFault_Handler_Ret 
-
-    ADDS    R1, #4                
-    STR     R1, [R0, #24]         
-
-    BX      LR                    
-HardFault_Handler_Ret
-
-     
-    MOVS    r0, #4
+    MOVS    r0, #4  
     MOV     r1, LR
-    TST     r0, r1                          
-    BEQ     Stack_Use_MSP                   
-    MRS     R0, PSP ;stack use PSP          
+    TST     r0, r1          
+    BEQ     Stack_Use_MSP   
+    MRS     R0, PSP         
     B       Get_LR_and_Branch
 Stack_Use_MSP
-    MRS     R0, MSP ; stack use MSP         
+    MRS     R0, MSP         
 Get_LR_and_Branch
-    MOV     R1, LR ; LR current value       
-    LDR     R2,=__cpp(Hard_Fault_Handler)   
+    MOV     R1, LR          
+    LDR     R2,=__cpp(Hard_Fault_Handler) 
     BX      R2
-
-    B       .
-
-                 ALIGN
 }
 
 
 
 
-
-
-
-
-
-
- 
-__asm int32_t SH_DoCommand(int32_t n32In_R0, int32_t n32In_R1, int32_t *pn32Out_R0)
-{
-    BKPT   0xAB          
-    
-    
-    B      SH_ICE
-
-SH_HardFault             
-    MOVS   R0, #0        
-    BX     lr            
-
-SH_ICE                   
-    
-    CMP    R2, #0
-    BEQ    SH_End
-    STR    R0, [R2]      
-
-SH_End
-    MOVS   R0, #1        
-    BX     lr            
-}
-
-
-
-#line 383 "..\\Library\\StdDriver\\src\\retarget.c"
 
 
 
@@ -20529,24 +20471,8 @@ void SendChar_ToUART(int ch)
  
 void SendChar(int ch)
 {
-
-    g_buf[g_buf_len++] = ch;
-    g_buf[g_buf_len] = '\0';
-    if(g_buf_len + 1 >= sizeof(g_buf) || ch == '\n' || ch == '\0')
-    {
-         
-        if(SH_DoCommand(0x04, (int)g_buf, 0) != 0)
-        {
-            g_buf_len = 0;
-            return;
-        }
-        else
-        {
-            g_buf_len = 0;
-        }
-    }
-
-
+#line 497 "..\\Library\\StdDriver\\src\\retarget.c"
+    SendChar_ToUART(ch);
 
 }
 
@@ -20561,20 +20487,17 @@ void SendChar(int ch)
  
 char GetChar(void)
 {
+#line 533 "..\\Library\\StdDriver\\src\\retarget.c"
 
-
-    int nRet;
-    while(SH_DoCommand(0x101, 0, &nRet) != 0)
+    while(1)
     {
-        if(nRet != 0)
+        if((((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->FSR & (1ul << 14)) == 0)
         {
-            SH_DoCommand(0x07, 0, &nRet);
-            return (char)nRet;
+            return (((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->DATA);
         }
     }
-#line 531 "..\\Library\\StdDriver\\src\\retarget.c"
-    return (0);
-#line 543 "..\\Library\\StdDriver\\src\\retarget.c"
+
+
 }
 
 
@@ -20686,21 +20609,7 @@ int ferror(FILE *stream)
     return (-1);
 }
 
-#line 669 "..\\Library\\StdDriver\\src\\retarget.c"
-void _sys_exit(int return_code)
-{
-
-     
-    if(SH_DoCommand(0x18, 0x20026, 0) == 0)
-    {
-         
-        while(IsDebugFifoEmpty() == 0);
-    }
-label:
-    goto label;   
-}
-
-
+#line 683 "..\\Library\\StdDriver\\src\\retarget.c"
 
 
 

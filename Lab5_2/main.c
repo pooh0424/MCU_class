@@ -50,6 +50,9 @@ int main(void)
 	int32_t enternumber=0;
 	int32_t linenew=0;
 	char Text[16] = "               ";
+	char pass[5] = "PASS";
+	char null[5] = "NULL";
+	char err[5] = "ERROR";
 	volatile uint32_t* leds[4] = {&PC12, &PC13, &PC14, &PC15};
 	SYS_Init();
 	OpenKeyPad();
@@ -85,7 +88,7 @@ int main(void)
 		}
 		else if(last_i==9&&linenew<4){
 			if(enternumber == src){
-				sprintf(Text+8,"PASS"); 			  
+				sprintf(Text,"%-4d    %s",enternumber,pass); 			  
 				print_Line(linenew, Text);  
 				for (int i=0;i<4;i++){
 						*leds[i] =0;
@@ -113,12 +116,12 @@ int main(void)
 				}
 			}	
 			else if(enternumber == 0){
-				sprintf(Text+8,"NULL"); 	  
+				sprintf(Text,"        %s",null); 	  
 				print_Line(linenew, Text);
 
 			}
 			else{
-				sprintf(Text+8,"ERROR"); 	  
+				sprintf(Text,"%-4d    %s",enternumber,err);  
 				print_Line(linenew, Text);
 				PB11=0;
 				Display_7seg(src);		

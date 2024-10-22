@@ -20324,7 +20324,7 @@ void ACMP_Close(ACMP_T *, uint32_t u32ChNum);
 
 
 #line 6 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
-#line 1 "..\\KEIL\\MCU_init.h"
+#line 1 "..\\MCU_init.h"
 
 
 
@@ -20759,7 +20759,15 @@ void SYS_Init(void)
 		
 #line 293 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 		
-#line 303 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
+
+      CLK_EnableModuleClock(((((1) & 0x03) << 30)|(((15) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((1) & 0x07) << 25)|(((7) & 0x1f) << 20)| (((0x0) & 0x03) << 18)|(((0x0) & 0xff) << 10)|(((0x0) & 0x1f) << 5)));
+
+      CLK_SetModuleClock(((((1) & 0x03) << 30)|(((15) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((1) & 0x07) << 25)|(((7) & 0x1f) << 20)| (((0x0) & 0x03) << 18)|(((0x0) & 0xff) << 10)|(((0x0) & 0x1f) << 5)), (0x1UL<<7), 0);
+
+
+
+
+
 		
 
 
@@ -20850,6 +20858,21 @@ void SYS_Init(void)
 		
 #line 630 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 
+
+
+
+
+
+		    ((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP = (((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP & ~(1UL<<8)) | (1UL<<8);
+
+
+		    ((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP = (((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP & ~(1UL<<9)) | (1UL<<9);
+
+
+		    ((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP = (((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP & ~(1UL<<10)) | (1UL<<10);
+
+
+		    ((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP = (((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPD_MFP & ~(1UL<<11)) | (1UL<<11);
 #line 654 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 		
 #line 661 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"

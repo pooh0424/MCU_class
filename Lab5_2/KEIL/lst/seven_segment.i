@@ -20372,7 +20372,8 @@ void ShowSevenSegment(uint8_t no, uint8_t number)
 {
   uint8_t temp,i;
 	temp=SEG_BUF[number];
-
+	
+		if(number!=0){
 		for(i=0;i<8;i++)
 				{
 			if((temp&0x01)==0x01)		   		   
@@ -20405,7 +20406,7 @@ void ShowSevenSegment(uint8_t no, uint8_t number)
 					case 2: (*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((6)<<2))))=1; break;
 					case 3: (*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((7)<<2))))=1; break;
 				}
-
+			}
 }
 
 

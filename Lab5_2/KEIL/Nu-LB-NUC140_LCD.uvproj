@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Sample</TargetName>
+      <TargetName>LCD</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -37,8 +37,8 @@
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath></RegisterFilePath>
-          <DBRegisterFilePath></DBRegisterFilePath>
+          <RegisterFilePath>Nuvoton\M051Series\</RegisterFilePath>
+          <DBRegisterFilePath>Nuvoton\M051Series\</DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -47,7 +47,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\obj\</OutputDirectory>
-          <OutputName>Sample</OutputName>
+          <OutputName>LCD_Keypad</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -373,9 +373,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DEBUG_ENABLE_SEMIHOST</Define>
+              <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Library\CMSIS\Include;..\Library\StdDriver\inc;..\Library\Device\Nuvoton\NUC100Series\Include;..\Library\Nu-LB-NUC140\Include;..\KEIL;..\Library</IncludePath>
+              <IncludePath>..\Library\CMSIS\Include;..\Library\StdDriver\inc;..\Library\Device\Nuvoton\NUC100Series\Include;..\Library\Nu-LB-NUC140\Include;..\</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -391,7 +391,7 @@
             <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>DEBUG_ENABLE_SEMIHOST</Define>
+              <Define></Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -435,26 +435,6 @@
           <GroupName>Library</GroupName>
           <Files>
             <File>
-              <FileName>clk.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\clk.c</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>retarget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\retarget.c</FilePath>
-            </File>
-            <File>
-              <FileName>sys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\StdDriver\src\sys.c</FilePath>
-            </File>
-            <File>
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Library\StdDriver\src\uart.c</FilePath>
@@ -463,6 +443,26 @@
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Library\StdDriver\src\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\StdDriver\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>clk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\StdDriver\src\clk.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\StdDriver\src\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>retarget.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\StdDriver\src\retarget.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -480,6 +480,11 @@
               <FilePath>..\Library\Nu-LB-NUC140\Source\SYS_init.c</FilePath>
             </File>
             <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Library\Nu-LB-NUC140\Source\LCD.c</FilePath>
+            </File>
+            <File>
               <FileName>Scankey.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Library\Nu-LB-NUC140\Source\Scankey.c</FilePath>
@@ -488,11 +493,6 @@
               <FileName>Seven_Segment.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Library\Nu-LB-NUC140\Source\Seven_Segment.c</FilePath>
-            </File>
-            <File>
-              <FileName>LCD.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Library\Nu-LB-NUC140\Source\LCD.c</FilePath>
             </File>
           </Files>
         </Group>

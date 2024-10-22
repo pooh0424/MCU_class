@@ -21510,11 +21510,12 @@ int main(void)
 	uint32_t last_i = 0;
 	uint32_t numberA = 0;
 	uint32_t numberB = 0;
+	char Text[16] = "                ";
 	SYS_Init();
-	OpenKeyPad();
 	init_LCD();
 	clear_LCD();
-	char Text[16] = "               ";
+	OpenKeyPad();
+
  	while(1) 
   {
 		i=ScanKey();
@@ -21527,7 +21528,7 @@ int main(void)
 						numberA = last_i;
 						state = 1;
 				}
-				if(state == 1){
+				else if(state == 1){
 						numberB = last_i;
 						sprintf(Text,"%d + %d  =  %d",numberA,numberB,numberA+numberB);	  
 						print_Line(0, Text);
@@ -21539,7 +21540,7 @@ int main(void)
 						print_Line(3, Text);
 						state = 2;
 				}
-				if(state == 2){
+				else if(state == 2){
 						clear_LCD();
 						state = 0;
 				}
