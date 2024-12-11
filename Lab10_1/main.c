@@ -165,6 +165,7 @@ int main(void)
 	fgColor = FG_COLOR;
 	while(1) {
 		if(flag){
+			clear_LCD();
 			draw_Bmp64x64(32,0,fgColor,bgColor,people[frame]);
 			flag = 0;
 		}

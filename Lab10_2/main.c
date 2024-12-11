@@ -19,10 +19,11 @@
 
 volatile _Bool run =0;
 volatile uint8_t frame =0;
-volatile _Bool flag =0;
-volatile uint8_t speed =1;
+volatile _Bool flag =1;
+volatile uint8_t speed =0;
 volatile uint8_t speedtime[4] ={8,4,2,1};
-volatile uint8_t timecount =1;
+volatile uint8_t timecount =0;
+volatile uint8_t seccount =0;
 unsigned char people[7][64*8] = {{ // Nuvoton Logo 
 	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xC0,0xC0,0xC0,0xC0,0x1E,0xDE,0xDE,0xDE,0xDE,0x1E,0xC0,0xC0,0xC0,0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
 	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x3F,0x3F,0x3D,0x3D,0x84,0xBD,0xBD,0xBD,0xBD,0x84,0x3D,0x3D,0x3F,0x3F,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
@@ -100,7 +101,7 @@ void GPAB_IRQHandler(void)
 					PA->ISRC |= BIT0;			// clear PB12 interrupt status
 					if(speed<3){
 						speed++;
-					}
+					}		
 			} 
 			else if (PA->ISRC & BIT1) { // check if Pb13 interrupt occurred
 					PA->ISRC |= BIT1;         // clear PB13 interrupt status
@@ -108,9 +109,12 @@ void GPAB_IRQHandler(void)
 					if(run == 1){
 							frame = 1;
 							timecount = 1;
+							seccount =1;
 					}
 					else{
 							frame = 0;
+							timecount = 0;
+							seccount =0;
 					}
 					flag = 1;
 			} 
@@ -118,8 +122,7 @@ void GPAB_IRQHandler(void)
 					PA->ISRC |= BIT2;         // clear PB14 interrupt status  
 					if(speed>0){
 						speed--;
-					}		
-				
+					}
 			} 
 			else {                      // else it is unexpected interrupts
 					PA->ISRC = PA->ISRC;	      // clear all GPB pins
@@ -128,10 +131,12 @@ void GPAB_IRQHandler(void)
 
 void TMR0_IRQHandler(void)
 {
+	TIMER_ClearIntFlag(TIMER0);
 	if(run){
-		if(timecount%speedtime[speed]||timecount>speedtime[speed]){
+		if(timecount%speedtime[speed]==0||timecount>speedtime[speed]){
 			if(frame==6){
 				frame = 1;
+
 			}
 			else{
 				frame++;
@@ -142,8 +147,11 @@ void TMR0_IRQHandler(void)
 		else{
 			timecount++;
 		}
+
+		seccount ++ ;
+
 	}
-  TIMER_ClearIntFlag(TIMER0);
+
 }
 
 void Init_KEY(void)
@@ -172,6 +180,7 @@ int main(void)
 {
 	
 	uint16_t fgColor, bgColor;
+
 	SYS_Init();
 	init_LCD();
 	clear_LCD();
@@ -182,11 +191,24 @@ int main(void)
 	fgColor = FG_COLOR;
 	while(1) {
 		if(flag){
+			clear_LCD();
 			draw_Bmp64x64(32,0,fgColor,bgColor,people[frame]);
 			flag = 0;
 		}
-		ShowSevenSegment(0,frame);
-	  CLK_SysTickDelay(200);		
+		int showlcdnumber;
+		CloseSevenSegment();		
+		showlcdnumber = seccount/4;
+		ShowSevenSegment(0,showlcdnumber%10);
+		CLK_SysTickDelay(5000);
+		CloseSevenSegment();
+		ShowSevenSegment(1,(showlcdnumber/10)%10);
+		CLK_SysTickDelay(5000);
+		CloseSevenSegment();
+		ShowSevenSegment(2,(showlcdnumber/100)%10);
+		CLK_SysTickDelay(5000);
+		CloseSevenSegment();
+		ShowSevenSegment(3,(showlcdnumber/1000)%10);
+		CLK_SysTickDelay(5000);
 	}
 }
 

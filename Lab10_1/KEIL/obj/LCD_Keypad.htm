@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\LCD_Keypad.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\LCD_Keypad.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sat Dec 07 23:19:31 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Dec 10 15:12:34 2024
 <BR><P>
 <H3>Maximum Stack Usage =        108 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -217,11 +217,11 @@ Global Symbols
 <P><STRONG><a name="[34]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_EnablePLL
+<BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER_Open
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_EnablePLL
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Open
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetPLLClockFreq
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
-<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER_Open
 </UL>
 
 <P><STRONG><a name="[5e]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
@@ -268,8 +268,8 @@ Global Symbols
 <P><STRONG><a name="[32]"></a>CLK_EnablePLL</STRONG> (Thumb, 348 bytes, Stack size 40 bytes, clk.o(i.CLK_EnablePLL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = CLK_EnablePLL &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_WaitClockReady
-<LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_WaitClockReady
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_SetCoreClock
 </UL>
@@ -312,8 +312,8 @@ Global Symbols
 <P><STRONG><a name="[33]"></a>CLK_WaitClockReady</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, clk.o(i.CLK_WaitClockReady))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLK_WaitClockReady
 </UL>
-<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_EnablePLL
-<LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
+<BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYS_Init
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_EnablePLL
 </UL>
 
 <P><STRONG><a name="[a]"></a>GPAB_IRQHandler</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, main.o(i.GPAB_IRQHandler))
@@ -335,8 +335,8 @@ Global Symbols
 <P><STRONG><a name="[27]"></a>Hard_Fault_Handler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, retarget.o(i.Hard_Fault_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Hard_Fault_Handler &rArr; stackDump &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stackDump
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stackDump
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> retarget.o(.emb_text)
 </UL>
@@ -372,9 +372,9 @@ Global Symbols
 <P><STRONG><a name="[42]"></a>SPI_Open</STRONG> (Thumb, 348 bytes, Stack size 24 bytes, spi.o(i.SPI_Open))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = SPI_Open &rArr; CLK_GetHCLKFreq &rArr; SystemCoreClockUpdate &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetHCLKFreq
+<BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetHCLKFreq
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_GetPLLClockFreq
-<LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SPI3
 </UL>
@@ -527,7 +527,7 @@ Global Symbols
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_LCD
 </UL>
 
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = main &rArr; SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
