@@ -52,14 +52,14 @@ void RTC_IRQHandler(void)
     old_xs = new_xs;
     old_ys = new_ys;	
     //------------------------------------------------
-		if(minute==59){
+		if(minute==119){
 				minute=0;
 		}
 		else{
 				minute++;
 		}
 		if(minute%10==0){
-			theta = minute *6;
+			theta = minute *3;
 			new_xm = X0 + (R-6) * sin(theta * PI/180);
 			new_ym = Y0 - (R-6) * cos(theta * PI/180);
 		
@@ -75,11 +75,6 @@ void RTC_IRQHandler(void)
     RTC_CLEAR_TICK_INT_FLAG();	
 }
 
-void Delay(uint32_t ucnt)
-{
-    volatile uint32_t i = ucnt;
-    while (i--);
-}
 
 void Init_RTC(void)
 {

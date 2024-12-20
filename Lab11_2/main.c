@@ -11,6 +11,7 @@
 #include "MCU_init.h"
 #include "SYS_init.h"
 #include "Note_Freq.h"
+#include "Seven_Segment.h"
 
 #define  P125ms 125000
 #define  P250ms 250000
@@ -90,49 +91,51 @@ int32_t main (void)
 	P500ms, P500ms, P500ms, P500ms,	P500ms, P500ms, P500ms, P500ms,	P500ms, P500ms, P500ms, P500ms,
 	P500ms, P500ms, P500ms, P500ms,	P500ms, P500ms, P500ms, P500ms,	P500ms, P500ms, P500ms, P500ms
 	};
-	uint16_t music1[42] = {
-			C4, C4, G4, G4, A4, A4, G4,  // Twinkle, Twinkle, Little Star
-			F4, F4, E4, E4, D4, D4, C4,  // How I wonder what you are
-			G4, G4, F4, F4, E4, E4, D4,  // Up above the world so high
-			G4, G4, F4, F4, E4, E4, D4,  // Like a diamond in the sky
-			C4, C4, G4, G4, A4, A4, G4,  // Twinkle, Twinkle, Little Star
-			F4, F4, E4, E4, D4, D4, C4   // How I wonder what you are
+	uint16_t music1[48] = {
+			C4, C4, G4, G4, A4, A4, G4,0 , // Twinkle, Twinkle, Little Star
+			F4, F4, E4, E4, D4, D4, C4,0 , // How I wonder what you are
+			G4, G4, F4, F4, E4, E4, D4,0 , // Up above the world so high
+			G4, G4, F4, F4, E4, E4, D4,0 , // Like a diamond in the sky
+			C4, C4, G4, G4, A4, A4, G4,0 , // Twinkle, Twinkle, Little Star
+			F4, F4, E4, E4, D4, D4, C4,0   // How I wonder what you are
 	};
 
-	uint32_t pitch1[42] = {
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,  // ???
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,  // ???
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,  // ???
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,  // ???
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,  // ???
-			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S   // ???
+	uint32_t pitch1[48] = {
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S,  // ???
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S,  // ???
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S,  // ???
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S,  // ???
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S,  // ???
+			P500ms, P500ms, P500ms, P500ms, P500ms, P500ms, P1S,P1S   // ???
 	};
-		int volume;
+		int volume = 50;
     SYS_Init();
+		OpenSevenSegment();
 
     PWM_EnableOutput(PWM0, PWM_CH_0_MASK);
     PWM_Start(PWM0, PWM_CH_0_MASK);	
 		Init_KEYandADC();
 		while(1){
-
 			if(flag==1){
+				
 				int value = ADC_GET_CONVERSION_DATA(ADC, 7);
 				if(value<200){
-						volume = 1;
+						volume = 0;
 				}
 				else if(value>3800){
-						volume = 120;
+						volume = 100;
 				}
 				else{
-						volume = (value-200)/3600*120;
+					volume =((value-200)/3600.0)*(100);
 				}
+				flag = 0;
 			}
 			if(song ==1){
 				PWM_ConfigOutputChannel(PWM0, PWM_CH0, music1[i], volume); // 0=Buzzer ON
 				if (music1[i]!=0) PWM_EnableOutput(PWM0, PWM_CH_0_MASK);
 				else             PWM_DisableOutput(PWM0, PWM_CH_0_MASK);
 				CLK_SysTickDelay(pitch1[i]);	
-				if(i==71){
+				if(i==47){
 						song=0;
 						i=0;
 				}
@@ -145,7 +148,7 @@ int32_t main (void)
 				if (music2[i]!=0) PWM_EnableOutput(PWM0, PWM_CH_0_MASK);
 				else             PWM_DisableOutput(PWM0, PWM_CH_0_MASK);
 				CLK_SysTickDelay(pitch2[i]);	
-				if(i==41){
+				if(i==71){
 						song=0;
 						i=0;
 				}
