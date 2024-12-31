@@ -20334,18 +20334,8 @@ void ACMP_Close(ACMP_T *, uint32_t u32ChNum);
 #line 13 "..\\MCU_init.h"
 
 
-#line 22 "..\\MCU_init.h"
+#line 21 "..\\MCU_init.h"
 
-
-
-
-
-
-
-
-
-
-#line 38 "..\\MCU_init.h"
 
 
 
@@ -20736,7 +20726,7 @@ void SYS_Init(void)
 
     
 
-    CLK_EnableModuleClock(((((1) & 0x03) << 30)|(((1) & 0x1f) << 0) | (((0x0) & 0x03) << 28)|(((0x0) & 0x07) << 25)|(((0x0) & 0x1f) << 20)| (((0x0) & 0x03) << 18)|(((0x0) & 0xff) << 10)|(((0x0) & 0x1f) << 5)));	
+
 
 
 	
@@ -20745,10 +20735,6 @@ void SYS_Init(void)
 #line 46 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 		
 
-
-       CLK_EnableModuleClock(((((1) & 0x03) << 30)|(((2) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((7) & 0x07) << 25)|(((8) & 0x1f) << 20)| (((0x0) & 0x03) << 18)|(((0x0) & 0xff) << 10)|(((0x0) & 0x1f) << 5)));	
-
-			 CLK_SetModuleClock(((((1) & 0x03) << 30)|(((2) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((7) & 0x07) << 25)|(((8) & 0x1f) << 20)| (((0x0) & 0x03) << 18)|(((0x0) & 0xff) << 10)|(((0x0) & 0x1f) << 5)), (0x0UL<<8), 0);
 #line 69 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 
 #line 91 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
@@ -20757,10 +20743,6 @@ void SYS_Init(void)
 		
 #line 135 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 		
-
-		   CLK_EnableModuleClock(((((1) & 0x03) << 30)|(((28) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((3) & 0x07) << 25)|(((2) & 0x1f) << 20)| (((0) & 0x03) << 18)|(((0xFF) & 0xff) << 10)|(((16) & 0x1f) << 5)));
-
-       CLK_SetModuleClock(((((1) & 0x03) << 30)|(((28) & 0x1f) << 0) | (((1) & 0x03) << 28)|(((3) & 0x07) << 25)|(((2) & 0x1f) << 20)| (((0) & 0x03) << 18)|(((0xFF) & 0xff) << 10)|(((16) & 0x1f) << 5)), (0x0UL<<2), (((1)-1) << 16));
 #line 154 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 
 
@@ -20858,10 +20840,7 @@ void SYS_Init(void)
 
 		
     
-#line 406 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
-    ((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPA_MFP = (((GCR_T *) ((( uint32_t)0x50000000) + 0x00000))->GPA_MFP & ~(1UL<<7)) | (1UL<<7);
-		((((GPIO_T *) (((( uint32_t)0x50000000) + 0x4000) )))->OFFD |= ((0x00000080)<<16));
-
+#line 409 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 
 #line 416 "..\\Library\\Nu-LB-NUC140\\Source\\SYS_init.c"
 

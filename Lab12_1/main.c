@@ -79,11 +79,14 @@ void UART02_IRQHandler(void)
 {
 	uint8_t c, i;
 	uint32_t u32IntSts = UART0->ISR;
+	PC14 =0;
 	
+
 	if(u32IntSts & UART_IS_RX_READY(UART0)) // check ISR on & RX is ready
   {
 		while (!(UART0->FSR & UART_FSR_RX_EMPTY_Msk)){ // check RX is not empty
 			c = UART_READ(UART0); // read UART RX data
+			
 			if (c!='\n') {        // check line-end 
 				comRbuf[comRbytes] = c;
 				comRbytes++;
@@ -108,6 +111,7 @@ void SerialPrint(char *Text)
  
 	UART_Write(UART0, Text, strlen(Text));
 	UART_WRITE(UART0, '\n');
+	PC13 =0;
 }
 
 int main(void)
@@ -135,7 +139,9 @@ int main(void)
 		number[i] = newNumber;
 	}
   while(1) {
+		Display_7seg(number);
 		i=ScanKey();
+
     if (RX_Flag==1) {
 			if(nowline <4){
 				int A = 0, B = 0;
@@ -160,8 +166,9 @@ int main(void)
 				}
 				else{
 					nowpos++;
+
 				}
 		}
-		Display_7seg(number);
+
   }
 }

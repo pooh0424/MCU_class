@@ -22324,18 +22324,8 @@ void ACMP_Close(ACMP_T *, uint32_t u32ChNum);
 #line 13 "..\\MCU_init.h"
 
 
-#line 22 "..\\MCU_init.h"
+#line 21 "..\\MCU_init.h"
 
-
-
-
-
-
-
-
-
-
-#line 38 "..\\MCU_init.h"
 
 
 
@@ -22842,11 +22832,14 @@ void UART02_IRQHandler(void)
 {
 	uint8_t c, i;
 	uint32_t u32IntSts = ((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->ISR;
+	(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((14)<<2)))) =0;
 	
+
 	if(u32IntSts & (((((UART_T *) ((( uint32_t)0x40000000) + 0x50000)))->ISR & (1ul << 0))>>0)) 
   {
 		while (!(((UART_T *) ((( uint32_t)0x40000000) + 0x50000))->FSR & (1ul << 14))){ 
 			c = ((((UART_T *) ((( uint32_t)0x40000000) + 0x50000)))->RBR); 
+			
 			if (c!='\n') {        
 				comRbuf[comRbytes] = c;
 				comRbytes++;
@@ -22871,6 +22864,7 @@ void SerialPrint(char *Text)
  
 	UART_Write(((UART_T *) ((( uint32_t)0x40000000) + 0x50000)), Text, strlen(Text));
 	((((UART_T *) ((( uint32_t)0x40000000) + 0x50000)))->THR = ('\n'));
+	(*((volatile uint32_t *)(((((( uint32_t)0x50000000) + 0x4000) + 0x0200)+(0x40*(2))) + ((13)<<2)))) =0;
 }
 
 int main(void)
@@ -22898,7 +22892,9 @@ int main(void)
 		number[i] = newNumber;
 	}
   while(1) {
+		Display_7seg(number);
 		i=ScanKey();
+
     if (RX_Flag==1) {
 			if(nowline <4){
 				int A = 0, B = 0;
@@ -22923,8 +22919,9 @@ int main(void)
 				}
 				else{
 					nowpos++;
+
 				}
 		}
-		Display_7seg(number);
+
   }
 }

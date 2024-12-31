@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\obj\LCD_Keypad.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\obj\LCD_Keypad.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Dec 20 23:40:42 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Dec 24 16:52:15 2024
 <BR><P>
 <H3>Maximum Stack Usage =        156 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -404,7 +404,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SPI3
 </UL>
 
-<P><STRONG><a name="[49]"></a>SYS_Init</STRONG> (Thumb, 198 bytes, Stack size 16 bytes, sys_init.o(i.SYS_Init))
+<P><STRONG><a name="[49]"></a>SYS_Init</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, sys_init.o(i.SYS_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = SYS_Init &rArr; CLK_SetCoreClock &rArr; CLK_EnablePLL &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLK_WaitClockReady
@@ -424,7 +424,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
 
-<P><STRONG><a name="[4d]"></a>SerialPrint</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(i.SerialPrint))
+<P><STRONG><a name="[4d]"></a>SerialPrint</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, main.o(i.SerialPrint))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SerialPrint &rArr; UART_Write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Write
@@ -453,8 +453,8 @@ Global Symbols
 <P><STRONG><a name="[28]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_nuc100series.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_nuc100series.o(.text)
 </UL>
-<P><STRONG><a name="[12]"></a>UART02_IRQHandler</STRONG> (Thumb, 78 bytes, Stack size 12 bytes, main.o(i.UART02_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = UART02_IRQHandler
+<P><STRONG><a name="[12]"></a>UART02_IRQHandler</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, main.o(i.UART02_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART02_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_nuc100series.o(RESET)
 </UL>

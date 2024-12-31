@@ -191,7 +191,7 @@ I (..\Library\StdDriver\inc\SC.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\PS2.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\CLK.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\ACMP.h)(0x67611FE6)
-F (..\main.c)(0x67658FE8)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\Library\CMSIS\Include -I ..\Library\StdDriver\inc -I ..\Library\Device\Nuvoton\NUC100Series\Include -I ..\Library\Nu-LB-NUC140\Include -I ..\-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Nuvoton\M051Series-D__UVISION_VERSION="524"-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+F (..\main.c)(0x676A762D)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\Library\CMSIS\Include -I ..\Library\StdDriver\inc -I ..\Library\Device\Nuvoton\NUC100Series\Include -I ..\Library\Nu-LB-NUC140\Include -I ..\-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Nuvoton\M051Series-D__UVISION_VERSION="524"-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)
@@ -222,7 +222,7 @@ I (..\Library\StdDriver\inc\SC.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\PS2.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\CLK.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\ACMP.h)(0x67611FE6)
-I (..\MCU_init.h)(0x67657D12)
+I (..\MCU_init.h)(0x676A761B)
 I (..\Library\Nu-LB-NUC140\Include\SYS_init.h)(0x67611FE6)
 I (..\Library\Nu-LB-NUC140\Include\Scankey.h)(0x67611FE6)
 I (..\Library\Nu-LB-NUC140\Include\LCD.h)(0x67611FE6)
@@ -255,7 +255,7 @@ I (..\Library\StdDriver\inc\SC.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\PS2.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\CLK.h)(0x67611FE6)
 I (..\Library\StdDriver\inc\ACMP.h)(0x67611FE6)
-I (..\MCU_init.h)(0x67657D12)
+I (..\MCU_init.h)(0x676A761B)
 I (..\Library\Nu-LB-NUC140\Include\SYS_init.h)(0x67611FE6)
 F (..\Library\Nu-LB-NUC140\Source\LCD.c)(0x67611FE6)(--c99 -c --cpu Cortex-M0 -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I ..\Library\CMSIS\Include -I ..\Library\StdDriver\inc -I ..\Library\Device\Nuvoton\NUC100Series\Include -I ..\Library\Nu-LB-NUC140\Include -I ..\-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Nuvoton\M051Series-D__UVISION_VERSION="524"-o .\obj\lcd.o --omf_browse .\obj\lcd.crf --depend .\obj\lcd.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
